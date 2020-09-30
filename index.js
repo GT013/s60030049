@@ -1,9 +1,10 @@
-var express = require('express');
-var app = express();
-var mongoose = require('mongoose');
-
-app.get('/',(req, res) => {
-    res.send({ping:'hello this is server and I am alive!'});
-})
-app.listen(3011);
+var http = require('http');
+var fs = require('fs');
+http.createServer(function (req, res) {
+  fs.readFile('profile.html', function(err, data) {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+	res.write(data);
+    return res.end();
+  });
+}).listen(3011)
 
