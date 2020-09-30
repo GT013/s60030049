@@ -1,6 +1,13 @@
-var http = require('http');
+var express = require('express');
+var app = express();
 
-http.createServer(function (req, res) {
-    res.writeHead(200, {'Content-Type': 'text/plain'});
-    res.end('NANTIKAN TIPPAWAN');
-}).listen(3011);
+app.get('/ping', function(req, res) {
+    res.send({ping:'hello this is server and I am alive!'});
+})
+
+app.get('/ping/:id', function(req, res) {
+    res.send({ping:'hello this is server and I am got '+req.params.id});
+});
+
+app.listen(3011);
+console.log('Listening on port 3011...');
