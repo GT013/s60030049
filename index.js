@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 
-app.get(function(req, res) {
+app.get('/ping',function(req, res) {
     res.send({ping:'hello this is server and I am alive!'});
 })
 app.listen(3011);
