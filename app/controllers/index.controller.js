@@ -2,7 +2,12 @@ require('../models/embedded.model');
 var embedded = require('mongoose').model('embedded');
 exports.render = function(req,res){
     embedded.find({},(err,resp)=>{
-        if(!err)res.json(resp);
+        if(!err){
+            res.render('index',{
+                'title':'Hello Jade',
+                'embedded':resp
+            });         
+        }
     })
 };
 exports.embedded = function(req,res){

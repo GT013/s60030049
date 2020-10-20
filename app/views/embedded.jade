@@ -1,0 +1,14 @@
+html
+    head
+        title = title
+        link(href='css/main.css',rel='stylesheet')
+    body
+        each emb in embedded
+        ul 
+            li #{emb.year}
+            li #{emb.month}
+            li #{emb.day}
+            li #{emb.temperature}
+            li #{emb.humidity}
+
+        script(type='text/javascript',src='/lib/angular/angular.min.js')
