@@ -3,3 +3,6 @@ exports.render = function(req,res){
         'title':'Hello Jade'
     });
 };
+exports.embedded = function(req,res){
+    res.json(req)
+}
