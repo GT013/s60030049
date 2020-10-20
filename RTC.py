@@ -17,11 +17,11 @@ while True:
         tempSensorRTC={
             "temperature": temperature,
             "humidity": humidity,
-            "year": temptime.em_year,
-            "month": temptime.em_mon,
-            "day": temptime.em_mday,
-            "hour": temptime.em_hour,
-            "minute": temptime.em_min
+            "year": temptime.tm_year,
+            "month": temptime.tm_mon,
+            "day": temptime.tm_mday,
+            "hour": temptime.tm_hour,
+            "minute": temptime.tm_min
         }
         res=requests.post('http://localhost:3011/embedded',tempSensorRTC)
         print(res) 
