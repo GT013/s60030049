@@ -3,7 +3,7 @@ var embedded = require('mongoose').model('embedded');
 exports.render = function(req,res){
     embedded.find({},(err,resp)=>{
         if(!err){
-            res.render('index',{
+            res.render('embedded',{
                 'title':'Hello Jade',
                 'embedded':resp
             });         
