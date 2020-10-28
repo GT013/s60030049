@@ -19,17 +19,7 @@ html
                         td #{emb.temperature} 
                         td #{emb.humidity}
                         td #{emb.hour} : #{emb.minute}
-        .pagination-container
-            nav
-                ul.pagination
-                    li(data-page='prev')
-                        span
-                            | < 
-                            span.sr-only (current)
-                    li#prev(data-page='next')
-                        span
-                            | > 
-                            span.sr-only (current)
+        
             //h1 วัน #{emb.day} เดือน #{emb.month} ปี #{emb.year}
             //h1 เวลา #{emb.hour} : #{emb.minute}
             //h1 อุณหภูมิ #{emb.temperature} 
