@@ -1,5 +1,5 @@
 import sys
-#import Adafruit_DHT
+import Adafruit_DHT
 import busio
 import adafruit_ds3231
 import requests
