@@ -4,7 +4,7 @@ const mongoose = require('./config/mongoose');
 var uri = 'mongodb://localhost/my-project';
 var db = mongoose();
 var app = express();
-app.listen(3049);
+app.listen(3011);
 module.exports = function(){
     require('./app/routes/index.routes')(app);
     require('./app/routes/user.routes')(app);
