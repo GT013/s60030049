@@ -23,6 +23,6 @@ while True:
             "hour": temptime.tm_hour,
             "minute": temptime.tm_min
         }
-        res=requests.post('http://localhost:3011/embedded',tempSensorRTC)
+        res=requests.post('http://localhost:3049/embedded',tempSensorRTC)
         print(res) 
         break
