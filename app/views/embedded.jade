@@ -38,28 +38,25 @@ html
     labels: [#{emb.day}/ #{emb.month}/ #{emb.year}],
       //labels คือ ข้อมูลในแกน X
     datasets: [{
-    label:"",
-      //กำหนดให้ กราฟแท่งเป็นสีแดง
-    backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
-    borderColor: window.chartColors.red,
-    borderWidth: 1,
-    data: [#{emb.temperature},#{emb.humidity}]
-      //data คือ  ข้อมูลในแกน Y
+        label:"",
+        backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
+        borderColor: window.chartColors.red,
+        borderWidth: 1,
+        data: [#{emb.temperature},#{emb.humidity}]  
     }]
     };
     var ctx = document.getElementById('#chart').getContext('2d');
-      //กำหนดให้แสดงกราฟที่ <canvas id="canvas"></canvas>
     window.myBar = new Chart(ctx, {
-    type: 'bar',
-    data: barChartData,
-    options: {
-    responsive: true,
-    legend: {
-    display: false,
-    },
-    title: {
-    display: true,
-    text: 'temperature and humidity'
-    }
-    }
-    });
+        type: 'bar',
+        data: barChartData,
+        options: {
+            responsive: true,
+            legend: {
+                display: false
+            },
+            title:{
+                display: true,
+                text: 'temperature and humidity'
+                }
+            }
+        });
