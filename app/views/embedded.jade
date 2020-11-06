@@ -4,11 +4,10 @@ html
         meta(charset='utf-8')
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
         link(href='css/main.css',rel='stylesheet')
-        link(href='js/pani.js',rel='stylesheet')
     body
     h1(align='center') วัดอุณหภูมิและความชื้น
     div
-        canvas(class="chart")
+        canvas(id="chart")
     div
         table#demo(style='width:100%')
             tbody
@@ -28,6 +27,39 @@ html
             //h1 เวลา #{emb.hour} : #{emb.minute}
             //h1 อุณหภูมิ #{emb.temperature} 
             //h1 ความชื้น #{emb.humidity}
-        script(type='text/javascript',src='/lib/angular/angular.min.js')
-        script(src="https://code.jquery.com/jquery-3.5.1.min.js")            
-        script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css")
+    script(type='text/javascript',src='/lib/angular/angular.min.js')
+    script(src="https://code.jquery.com/jquery-3.5.1.min.js")            
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css")
+    script(src='https://www.chartjs.org/dist/2.8.0/Chart.min.js')
+    script(src='https://www.chartjs.org/samples/latest/utils.js')
+    script.
+    var color = Chart.helpers.color;
+    var barChartData = {
+    labels: [#{emb.day}/ #{emb.month}/ #{emb.year}],
+      //labels คือ ข้อมูลในแกน X
+    datasets: [{
+    label:"",
+      //กำหนดให้ กราฟแท่งเป็นสีแดง
+    backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
+    borderColor: window.chartColors.red,
+    borderWidth: 1,
+    data: [#{emb.temperature},#{emb.humidity}]
+      //data คือ  ข้อมูลในแกน Y
+    }]
+    };
+    var ctx = document.getElementById('#chart').getContext('2d');
+      //กำหนดให้แสดงกราฟที่ <canvas id="canvas"></canvas>
+    window.myBar = new Chart(ctx, {
+    type: 'bar',
+    data: barChartData,
+    options: {
+    responsive: true,
+    legend: {
+    display: false,
+    },
+    title: {
+    display: true,
+    text: 'temperature and humidity'
+    }
+    }
+    });
