@@ -4,9 +4,12 @@ html
         meta(charset='utf-8')
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
         link(href='css/main.css',rel='stylesheet')
+        link(href='js/pani.js',rel='stylesheet')
     body
     h1(align='center') วัดอุณหภูมิและความชื้น
-        table(style='width:100%')
+    div(ng-controller='LineCtrl')
+        canvas(class="chart")
+        table#demo(style='width:100%')
             tbody
                 tr
                     th วัน/เดือน/ปี
@@ -25,3 +28,5 @@ html
             //h1 อุณหภูมิ #{emb.temperature} 
             //h1 ความชื้น #{emb.humidity}
         script(type='text/javascript',src='/lib/angular/angular.min.js')
+        script(src="https://code.jquery.com/jquery-3.5.1.min.js")            
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css")
