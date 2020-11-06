@@ -7,7 +7,7 @@ html
     body
     h1(align='center') วัดอุณหภูมิและความชื้น
     div
-        canvas(id="chart")
+        canvas(id="chart" width="400" height="400")
     div
         table#demo(style='width:100%')
             tbody
@@ -33,30 +33,24 @@ html
     script(src='https://www.chartjs.org/dist/2.8.0/Chart.min.js')
     script(src='https://www.chartjs.org/samples/latest/utils.js')
     script.
-    var color = Chart.helpers.color;
-    var barChartData = {
-    labels: [#{emb.day}/ #{emb.month}/ #{emb.year}],
-      //labels คือ ข้อมูลในแกน X
-    datasets: [{
-        label:"HA",
-            backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
-            borderColor: window.chartColors.red,
-            borderWidth: 1,
-            data: [#{emb.temperature},#{emb.humidity}]  
-    }]
-    };
-    var ctx = document.getElementById('#chart').getContext('2d');
-    window.myBar = new Chart(ctx, {
-        type: 'bar',
-        data: barChartData,
-        options: {
-            responsive: true,
-            legend: {
-                display: false
-            },
-            title:{
-                display: true,
-                text: 'temperature and humidity'
-                }
-            }
-        });
+      var ctx = document.getElementById("#chart");
+      var chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+          datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            borderWidth: 1
+          }]
+        },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero:true
+              }
+            }]
+          }
+        }
+      });
