@@ -14,3 +14,13 @@ exports.embedded = function(req,res){
     var emb = embedded.insertMany(req.body)
     res.json(emb)
 }
+exports.getData=(req,res,next)=>{
+    DataCue.find({},function(err,data){
+        if(err){
+            return next(err);
+        } else {
+            res.json(data);
+        }
+        console.log(data);
+    })
+}

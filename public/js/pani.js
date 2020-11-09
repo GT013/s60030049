@@ -1,4 +1,4 @@
-var data = embedded;
+var url = 'http://localhost:3049/getdata';
 var ctx = document.getElementById("#chart").getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'line',
@@ -27,12 +27,6 @@ var myChart = new Chart(ctx, {
         }]
     },
     options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
+        responsive:true
     }
 });
