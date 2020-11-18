@@ -15,7 +15,7 @@ exports.embedded = function(req,res){
     res.json(emb)
 }
 exports.getData=(req,res,next)=>{
-    DataCue.find({},function(err,data){
+    embedded.find({},function(err,data){
         if(err){
             return next(err);
         } else {
