@@ -1,11 +1,10 @@
 require('../models/embedded.model');
-var embedded = require('mongoose').model('embedded');
+var embedded = require('mongoose').model('modbus');
 exports.render = function(req,res){
     embedded.find({},(err,resp)=>{
         if(!err){
             res.render('embedded',{
                 'title':'Hello Jade',
-                'embedded':resp
             });         
         }
     })
